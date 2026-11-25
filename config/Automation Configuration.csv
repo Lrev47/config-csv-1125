@@ -1,0 +1,2 @@
+﻿Is Active,Name,Scope,Config Value,Value Type,Config Key
+Yes,reactors.enabled,global,true,bool,reactors.enabled

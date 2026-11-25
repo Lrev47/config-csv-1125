@@ -1,0 +1,19 @@
+﻿Name,Category,Description,Error Code,Recommended Action
+Verify failed,Transient,"The robot typed or clicked and the field did not read back as expected, or the click itself failed.",VERIFY_FAILED,"Open the run screenshot, check the window and the click-map row, then resubmit."
+Step timeout,Transient,The run went past its time limit.,STEP_TIMEOUT,"Check whether Irium was slow or stuck; if the work is legitimately long, raise the route timeout, then resubmit."
+Coordinate target missing,Permanent,No active click-map row for the screen element the robot needs.,COORD_TARGET_MISSING,"Add or activate the row in the click-map data, then resubmit."
+Input envelope invalid,Permanent,"The order data sent to the robot is missing something or names a route, module or action the robot does not know.",INPUT_ENVELOPE_INVALID,"Fix the order or the automation setup, then resubmit."
+Route URL unresolved,Permanent,"The route has no flow URL, so the item cannot be sent to the robot.",ROUTE_URL_UNRESOLVED,"Set the route's Flow URL to RPA Dispatch, then resubmit."
+Test window title format changed,Permanent,"The stored Rental test window title has no ""Train M/D"" anchor, so the test database date cannot be synced.",TEST_TITLE_FORMAT_CHANGED,"Re-capture the module window titles on the Test system, update the Rental Modules row, then resubmit."
+Irium business rejection,Business,Irium refused the change by a business rule.,IRIUM_BUSINESS_REJECTION,"Review the reason with the order owner, correct the order, and resubmit if appropriate."
+Child flow abandoned,System,No result from the robot within the stale limit (lrev_StaleTimeoutMinutes_Async).,CHILD_FLOW_ABANDONED,Check the desktop flow run and Irium; resubmit only if the work did not happen.
+Irium not ready,System,Irium didn't launch/respond at init.,IRIUM_NOT_READY,"Check the VM, Irium install path, and that no stale instance is wedged."
+Irium login failed,System,Login didn't reach Home.,IRIUM_LOGIN_FAILED,Verify the credential and that the login screen layout/coordinates are current.
+Unknown window state,System,No known screen matched within timeout.,UNKNOWN_WINDOW_STATE,Open the failure screenshot; add the new screen to the state data if it is legitimate.
+Dispatch failure,System,Q-Reactor could not reach RPA Dispatch (HTTP error or timeout). The robot did not start.,DISPATCH_FAILURE,"Check the route's Flow URL and that RPA Dispatch is on, then resubmit."
+Workspace reset failed,System,"Preparing the worker machine failed: apps left open, display not 1920x1080, or more than one monitor.",WORKSPACE_RESET_FAILED,"Fix the worker session, then resubmit."
+Irium process down,System,The module process did not come up within 20 seconds of opening it.,IRIUM_PROCESS_DOWN,"Check that Irium starts on the worker machine (login, license, network), then resubmit the item."
+Irium process not responding,System,The module process is running but Windows reports it as not responding.,IRIUM_PROCESS_HUNG,"Close the hung Irium window on the worker machine, then resubmit the item."
+Unknown error,Unknown,The robot failed without an error code.,UNKNOWN_ERROR,Read the run log; add a catalog row once the cause is known.
+No result from the robot,System,"The desktop flow action failed or timed out (machine offline, PAD stopped, connection broken, run over the time limit), so the robot returned no result.",WORKER_NO_RESULT,"Check the machine and the desktop flow run, then check Irium before resubmitting."
+RPA Dispatch failed before the robot,System,RPA Dispatch failed before it called the robot.,DISPATCH_UNHANDLED,"Open the RPA Dispatch run history, fix the cause, then resubmit."
